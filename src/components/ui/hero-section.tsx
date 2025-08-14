@@ -1,74 +1,24 @@
 import { Button } from "./button";
 import { ArrowRight, Sparkles } from "lucide-react";
-import heroImage from "@/assets/hero-bg.jpg";
-import { useEffect, useState } from "react";
 
 export function HeroSection() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', handleScroll);
-    
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Parallax Background */}
-      <div 
-        className="absolute inset-0 z-0 parallax-slow"
+      {/* Spline Background */}
+      <iframe
+        src="https://my.spline.design/flowingribbon-YkP0H3oOPCTAbUpOTGMFJCRy/"
+        frameBorder="0"
         style={{
-          transform: `translateY(${scrollY * 0.5}px)`
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 0,
+          pointerEvents: "none",
         }}
-      >
-        <img 
-          src={heroImage} 
-          alt="AI Technology Background" 
-          className="w-full h-full object-cover opacity-10"
-        />
-        <div className="absolute inset-0 hero-gradient opacity-5"></div>
-      </div>
-
-      {/* Interactive floating elements */}
-      <div className="absolute inset-0 z-10">
-        <div 
-          className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary rounded-full animate-pulse opacity-60 hover-glow"
-          style={{
-            transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)`
-          }}
-        ></div>
-        <div 
-          className="absolute top-1/3 right-1/3 w-1 h-1 bg-primary-light rounded-full animate-pulse opacity-40 delay-1000 hover-glow"
-          style={{
-            transform: `translate(${mousePosition.x * -0.01}px, ${mousePosition.y * 0.01}px)`
-          }}
-        ></div>
-        <div 
-          className="absolute bottom-1/4 left-1/3 w-3 h-3 bg-primary rounded-full animate-pulse opacity-30 delay-2000 hover-glow"
-          style={{
-            transform: `translate(${mousePosition.x * 0.015}px, ${mousePosition.y * -0.015}px)`
-          }}
-        ></div>
-        <div 
-          className="absolute top-2/3 right-1/4 w-1 h-1 bg-primary-light rounded-full animate-pulse opacity-50 delay-500 hover-glow"
-          style={{
-            transform: `translate(${mousePosition.x * -0.02}px, ${mousePosition.y * -0.01}px)`
-          }}
-        ></div>
-      </div>
+        title="Flowing Ribbon Background"
+      ></iframe>
 
       {/* Content */}
       <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -80,15 +30,15 @@ export function HeroSection() {
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in-up delay-200 hover-lift">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 ">
             It's Time to{" "}
-            <span className="text-gradient hover-glow">Transform</span>
+            <span>Transform</span>
             <br />
             Your Business with AI
           </h1>
 
           {/* Subheadline */}
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-300 fade-in-scroll">
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed ">
             We build AI solutions that solve real business problems and help your team work faster, smarter, and more productively.
           </p>
 
@@ -101,11 +51,17 @@ export function HeroSection() {
               Discover AI Potential for Your Business
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 smooth-transition" />
             </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="px-8 py-4 text-lg border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground smooth-transition hover-scale magnetic"
-            >
+            <Button
+  variant="outline"
+  size="lg"
+  className="px-8 py-4 text-lg border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground smooth-transition hover-scale magnetic"
+  onClick={() => {
+    const el = document.getElementById("what-we-do");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+>
               What We Do
             </Button>
           </div>
