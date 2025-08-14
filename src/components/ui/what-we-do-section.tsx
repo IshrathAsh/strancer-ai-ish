@@ -47,21 +47,21 @@ export function WhatWeDoSection() {
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {services.map((service, index) => (
-            <Card key={index} className="card-gradient border-0 shadow-medium hover:shadow-large smooth-transition group">
+            <Card key={index} className="card-gradient border-0 shadow-medium hover:shadow-large smooth-transition group hover-lift hover-slide fade-in-scroll">
               <CardContent className="p-8">
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 smooth-transition">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 smooth-transition hover-scale hover-glow magnetic">
                       <service.icon className="h-6 w-6 text-primary" />
                     </div>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+                    <h3 className="text-xl font-semibold mb-3 hover-scale">{service.title}</h3>
                     <p className="text-muted-foreground mb-4">{service.description}</p>
                     <ul className="space-y-2">
                       {service.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-center text-sm text-muted-foreground">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3"></div>
+                        <li key={idx} className="flex items-center text-sm text-muted-foreground hover-scale">
+                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3 hover-glow"></div>
                           {feature}
                         </li>
                       ))}
@@ -74,18 +74,18 @@ export function WhatWeDoSection() {
         </div>
 
         {/* Value Proposition */}
-        <div className="text-center">
-          <div className="inline-flex items-center space-x-8 p-6 rounded-2xl bg-primary/5 border border-primary/20">
-            <div className="flex items-center space-x-2">
-              <Target className="h-5 w-5 text-primary" />
+        <div className="text-center fade-in-scroll">
+          <div className="inline-flex items-center space-x-8 p-6 rounded-2xl bg-primary/5 border border-primary/20 hover-lift hover-glow magnetic">
+            <div className="flex items-center space-x-2 hover-scale">
+              <Target className="h-5 w-5 text-primary hover-glow animate-pulse" />
               <span className="font-medium">Real Business Impact</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <Zap className="h-5 w-5 text-primary" />
+            <div className="flex items-center space-x-2 hover-scale">
+              <Zap className="h-5 w-5 text-primary hover-glow animate-pulse" />
               <span className="font-medium">Scalable Solutions</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <Brain className="h-5 w-5 text-primary" />
+            <div className="flex items-center space-x-2 hover-scale">
+              <Brain className="h-5 w-5 text-primary hover-glow animate-pulse" />
               <span className="font-medium">Expert Team</span>
             </div>
           </div>
